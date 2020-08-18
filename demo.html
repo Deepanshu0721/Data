@@ -1,0 +1,66 @@
+<html>
+    <body>
+        
+        <form method="post" id="uploadForm" name="freelancer_form">
+
+            <input type="hidden" value="" name="fileContent" id="fileContent">
+            <input type="hidden" value="" name="filename" id="filename">
+            
+
+
+            <label> Name : </label><input required type="text" value="" name="name" id="name">
+            <label> Email :</label> <input required type="text" value="" name="email" id="email">
+            <label> Contact : </label><input  type="text" value="" name="contact" id="contact">
+            <label> SkillSets :</label> <input  type="text" value="" name="skillsets" id="skillsets">
+            <!-- <label> LinkedIn Account:</label><input type="text" value="" name="linkedinUrl" id="linkedinUrl"> -->
+            
+            
+        </form>
+        
+        <input required id="attach" name="attach" type="file"/>
+            <button type="submit" name="submit" onclick="UploadFile()" >Submit</button>
+        <script>
+            
+        // const scriptURL = "https://script.google.com/macros/s/AKfycbwPPrF2_0SZ8NcMj9qQ9Eq9UoJKjfFfCNagtF28ttDqP0nKt1I/exec"
+        // const form = document.forms['freelancer_form']
+        
+        // form.addEventListener('submit', e => {
+        // e.preventDefault()
+        // fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  
+        // form.reset();
+        // }) 
+
+        
+
+        function UploadFile() {
+            var reader = new FileReader();
+            var file = document.getElementById('attach').files[0];
+            
+            const scriptURL = "https://script.google.com/macros/s/AKfycbwPPrF2_0SZ8NcMj9qQ9Eq9UoJKjfFfCNagtF28ttDqP0nKt1I/exec"
+
+            const form = document.forms['freelancer_form']
+
+            var data = new FormData();
+            data.append(form, file);
+
+            console.log(data);
+          
+            // form.addEventListener('submit', e => {
+            // e.preventDefault()
+            // fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  
+            // })
+            // reader.onload = function(){
+            // document.getElementById('fileContent').value=reader.result;
+            // document.getElementById('filename').value=file.name;
+            // document.getElementById('uploadForm').submit();
+            // alert("HI");
+            // }
+            // reader.readAsDataURL(file);
+        }
+        </script>
+    
+    </body>
+
+</html>
